@@ -5,11 +5,13 @@ import Poema from './Poema';
 const GetPoema = () =>{
     const [data, setData] = useState([]);//Almaceno datos de API
     const url= 'http://localhost/BackEndconPHP/carga-datos/mostrar-api.php';
+    //obtengo datos de la API
     const fetchData = () =>{
         axios.get(url)
         .then(response => {setData(response.data)})
         .catch(error => {console.error('Error fetching Data: ', error)});
     };
+    //funcion para obetener los datos cuando se renderiza el componente
     useEffect(() => {
         fetchData();
     }, []);
